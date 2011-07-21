@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name        = "show_me_the_cookies"
   s.version     = ShowMeTheCookies::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Nicholas Rutherford"]
-  s.email       = ["nick.rutherford@gmail.com"]
-  s.homepage    = "https://github.com/nruth/show_me_the_cookies"
+  s.authors     = ["Nate Prouty"]
+  s.email       = ["nprouty@mzinga.com"]
+  s.homepage    = "https://github.com/mzinga/show_me_the_cookies"
   s.summary     = %q{Cookie manipulation for Capybara drivers}
   s.description = %q{Cookie manipulation for Capybara drivers -- viewing, deleting, ...}
   s.licenses = ["MIT"]
