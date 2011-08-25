@@ -5,7 +5,7 @@ class ShowMeTheCookies::Selenium
   end
 
   def show_me_the_cookie(cookie_name)
-    @browser.manage.all_cookies[cookie_name]
+    raise 'not implemented for Selenium driver yet'
   end
 
   def show_me_the_cookies
