@@ -3,6 +3,10 @@ class ShowMeTheCookies::Culerity
     @browser = driver.browser
   end
 
+  def show_me_the_cookie(cookie_name)
+    @browser.cookies.send_remote(cookie_name.to_sym)
+  end
+
   def show_me_the_cookies
     @browser.cookies.send_remote(:inspect)
   end

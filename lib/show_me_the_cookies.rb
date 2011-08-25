@@ -18,6 +18,10 @@ module ShowMeTheCookies
     end
   end
 
+  def show_me_the_cookie(cookie_name)
+    current_driver_adapter.show_me_the_cookie(cookie_name)
+  end
+
   def show_me_the_cookies
     puts "Current cookies: #{current_driver_adapter.show_me_the_cookies}"
   end
