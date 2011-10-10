@@ -4,8 +4,12 @@ class ShowMeTheCookies::Selenium
     self
   end
 
+  def get_me_the_cookies
+    @browser.manage.all_cookies
+  end
+
   def show_me_the_cookie(cookie_name)
-    raise 'not implemented for Selenium driver yet'
+    @browser.manage.cookie_named(cookie_name)
   end
 
   def show_me_the_cookies
