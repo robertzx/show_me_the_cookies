@@ -3,23 +3,31 @@ module ShowMeTheCookies
   require 'show_me_the_cookies/culerity'
   require 'show_me_the_cookies/rack_test'
   require 'show_me_the_cookies/selenium'
+  require 'show_me_the_cookies/akephalos'
 
   def current_driver_adapter
+    errmsg = "unsupported driver; use rack::test, selenium/webdriver, akephalos, or culerity"
     driver = Capybara.current_session.driver
-    case Capybara.current_driver
-    when :selenium
+    case driver.class.name
+    when "Capybara::Selenium::Driver"
       ShowMeTheCookies::Selenium.new driver
-    when :rack_test
+    when "Capybara::RackTest::Driver"
       ShowMeTheCookies::RackTest.new driver
-    when :culerity
+    when "Capybara::Driver::Culerity"
       ShowMeTheCookies::Culerity.new driver
+    when "Capybara::Driver::Akephalos"
+      ShowMeTheCookies::Akephalos.new driver  
     else
-      raise "unsupported driver, use rack::test, selenium/webdriver or culerity"
+      raise errmsg
     end
   end
 
   def show_me_the_cookie(cookie_name)
     current_driver_adapter.show_me_the_cookie(cookie_name)
+  end
+
+  def get_me_the_cookies
+    current_driver_adapter.get_me_the_cookies
   end
 
   def show_me_the_cookies
